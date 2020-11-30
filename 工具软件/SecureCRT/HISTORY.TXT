@@ -1,0 +1,329 @@
+
+            SecureCRT(R) 5.1.2 (Official) -- May 25, 2006
+
+            Copyright (C) 1995-2006 VanDyke Software, Inc.
+                        All rights reserved.
+
+
+This file contains a SecureCRT product history.  It includes lists 
+of new features, changes, and bug fixes sorted by release.  For a 
+product description, installation notes, registration information,
+and contact information, please refer to Readme.txt (downloaded 
+with this installation).
+
+
+Changes in SecureCRT 5.1.2 (Official) -- May 25, 2006
+-----------------------------------------------------
+
+Bug fixes:
+
+  - Line drawing did not work correctly for SCO ANSI emulation.
+  - When the default session was edited and a tab other than the first
+    tab was active, the "Apply change to all sessions?" prompt was
+    displayed even if no changes were made.
+  - Under certain circumstances, the color change sequence for
+    256-color Xterm emulation was split between buffers, which caused
+    some colors to be displayed incorrectly.
+  - SSH2: SecureCRT could crash when using the TAB key to complete a
+    filename in an SFTP tab, especially if TAB was pressed multiple
+    times.
+
+
+Changes in SecureCRT 5.1.1 (Official) -- April 25, 2006
+-------------------------------------------------------
+
+Changes:
+
+  - For new installations, the default local directory for SFTP tabs
+    is now "My Documents".  The SFTP local directory can be set
+    through a session INI-file only option called "Sftp Tab Local
+    Directory".
+
+Bug fixes:
+
+  - There were problems with line drawing characters and menu
+    positions when running dellmgr.
+  - On 64-bit systems, pressing "8" brought SecureCRT to the
+    foreground.
+  - In some cases, when the SecureCRT window was maximized, the
+    arrow control was placed in the tab bar even though it was
+    not necessary.
+  - SSH2: Under certain circumstances, SecureCRT crashed when
+    attempting to start an X client using SSH2 X11 forwarding.
+  - SSH2: The trailing slash was no longer being appended during
+    local file completion.  This was a change in behavior from 5.0.
+  - SSH2: It was not possible to change the passphrase of a public
+    key through the Public Key Properties dialog.
+  - SSH2: When initiating an SSH2 password change from the Password
+    Properties dialog and multiple authentications were selected,
+    misleading errors were displayed.
+
+
+Changes in SecureCRT 5.1 (Official) -- March 28, 2006
+-----------------------------------------------------
+
+Bug fixes:
+
+  - In some cases, escape sequences beginning with "ESC ]" were
+    incorrectly interpreted.
+
+
+Changes in SecureCRT 5.1 (Beta 4) -- March 14, 2006
+---------------------------------------------------
+
+Changes:
+
+  - Added Global.ini option "Serialize Connections".  If this
+    option is set, when multiple sessions are connected at the
+    same time, they are connected serially instead of in parallel.
+  - VCP/VSH: The command-line clients now display unsupported
+    host-key algorithms as they are received from the server.
+    Previously unsupported algorithms were displayed as blank
+    strings.
+  - VCP/VSH: Entering the wrong passphrase for an SSH1 RSA public
+    key no longer displays an "invalid structure" error.  Users are
+    now prompted to enter a passphrase until they use the correct
+    one or cancel.
+
+Bug fixes:
+
+  - If a generic proxy was misconfigured, it caused SecureCRT to
+    hang, and disconnecting the session caused SecureCRT to crash.
+  - SecureCRT crashed when unsaving a password for a session and
+    password that had been specified on the command line.
+  - The tab status indicator changed to "connected" when connecting
+    to a host that did not exist if another tab that was connected
+    was selected before the connection attempt timed out.
+  - SSH2: When editing the default session, it was possible do a
+    password change.
+  - SSH2: Under certain circumstances, even though an X.509 host key
+    had been accepted and saved, SecureCRT asked about accepting it
+    during key re-exchange or when reconnecting.
+
+
+Changes in SecureCRT 5.1 (Beta 3) -- March 2, 2006
+--------------------------------------------------
+
+Changes:
+
+  - The installation program no longer removes old versions of
+    SecureCRT from Windows Add/Remove Programs.
+  - For DNS addresses, SecureCRT uses the return list as is,
+    rather than preferring IPv4 addresses.
+
+Bug fixes:
+
+  - If SecureCRT and SecureFX were integrated, but were out of
+    sync, it was possible for the authentication method and key
+    exchange lists to be empty on the SSH2 page in the Session
+    Options dialog.
+  - After installing SecureCRT for the first time, upon starting,
+    the user was prompted to configure TAPI information and
+    SecureCRT crashed if the dialog was cancelled.
+  - Under certain circumstances, printing did not work after
+    upgrading from a version of SecureCRT prior to 5.0.
+  - If a log file name with parameter substitutions was specified
+    and "Prompt for filename" was set, the log file name was not
+    honored.
+  - In the Quick Connect dialog, changes made to the default
+    session were only reflected for the default protocol.
+  - The transfer protocol name was modified in the session .ini
+    file every time a connection attempt to that session was made.
+  - SSH1: Under certain circumstances, authentication failed when
+    connecting to an SSH1 server using Quick Connect.
+  - SSH1: Entering the wrong passphrase for an SSH1 RSA public key
+    resulted in an "invalid structure" error.
+  - SSH2: In the Local Port Forwarding Properties dialog, it was
+    not possible to use the same local port as another port forward
+    when the local IP address was different.
+
+
+Changes in SecureCRT 5.1 (Beta 2) -- February 21, 2006
+------------------------------------------------------
+
+New features:
+
+  - Added history support to the chat window, allowing previous
+    commands to be viewed, edited, and sent.
+  - SSH2: Passwords for SSH2 sessions can be changed from the
+    Session Options dialog using the SSH2 protocol when it is
+    supported by the remote machine.
+
+Changes:
+
+  - Added a global-file-only option "Clipboard Data Format",
+    which allows the clipboard data format to be set to CF_TEXT,
+    CF_OEMTEXT, or CF_UNICODETEXT.
+  - When "FIPS mode" is enabled, invalid cryptographic algorithms
+    are not displayed in the Session Options dialog. 
+  - When "FIPS Mode" is enabled, it is displayed in the About box.
+  - SSH2: Added default support for X.509 certificate server host
+    keys.
+  - SSH2: When a key exchange method is not supported, a message
+    is logged to the trace output.
+  - SSH1/SSH2: Authentication methods can be edited in the Session
+    Options dialog for SSH1 and SSH2 sessions that are connected.
+
+Bug fixes:
+
+  - When SecureCRT and SecureFX were integrated and the terminal
+    protocol for a session was set to SSH2 and the transfer
+    protocol was set to FTP, if the password was saved, it had to
+    be re-entered when switching between SecureCRT and SecureFX.
+  - Paste sometimes used Unicode, even though ASCII text was
+    selected.
+  - When multiple sessions were connected and the "Always on Top"
+    setting was changed, the setting did not always have the
+    correct value when a different session was active.
+  - After installing SecureCRT and running it for the first time,
+    if the evaluation dialog was quit, the next time SecureCRT
+    was run, it tried to migrate unnecessarily.
+  - SSH2: Pressing OK in the GSSAPI Properties dialog caused
+    SecureCRT to crash 
+  - SSH2: SecureCRT did not honor the SFTP Tab Local directory
+    setting. 
+  - SSH2: When "FIPS Mode" was enabled, the New Host Key dialog
+    did not display the server's fingerprint.  It is now displayed
+    as a SHA-1 hash when "FIPS Mode" is enabled. 
+  - SSH1: Under certain circumstances, SSH1 host keys could not
+    be saved.
+
+
+Changes in SecureCRT 5.1 (Beta 1) -- January 31, 2006
+-----------------------------------------------------
+
+New features:
+
+  - Enhanced support for X.509 certificate authentication.
+    - Previously, X.509 was supported through a CAPI store.  Now,
+      X.509 certificates are also supported directly. 
+    - SecureCRT supports forwarding X.509 certificates through the
+      public-key agent. This means that authentication happens
+      automatically when connecting to another machine using the same
+      X.509 certificate.
+  - SecureCRT now has an administrator option to run in "FIPS Mode".
+    When this option is set, SecureCRT uses a FIPS 140-2 validated
+    cryptographic library and only allows FIPS-approved algorithms.
+  - The Activator supports SSH agent functionality, which means that
+    if SecureCRT is closed, authentication happens automatically as
+    long as the Activator is still running.
+  - Folders and multiple selected sessions can be connected from the
+    Connect dialog.
+  - Global option to only show tabs where there are more than one.    
+  - Custom menu/toolbar command OPEN_SESSION_TAB to open a session 
+    in a tab. 
+  - Support for ActiveX scripts written in Unicode or UTF-8.
+  - Script support for sending and waiting for Unicode strings.
+  - SecureCRT can run a script by interpreting the special escape
+    sequence "script <script>".
+  - Added a Logging property to the Session scripting object that
+    allows a script to determine if logging is enabled.
+  - Support for execute escape sequences in Wyse 50 emulation.
+  - SSH2: Added a session option not to request a shell upon
+    connection.  
+
+Changes:
+
+  - View menu items such as Chat Window and Status Bar can now be
+    shown and hidden when a tab other than the first tab is active. 
+  - Large pastes can be cancelled by typing CTRL+C.
+  - SecureCRT remembers the last log file that was specified in the
+    Select Log File dialog.
+  - If a tab is renamed, the new name is remembered until a different
+    session is opened in that tab or until SecureCRT is closed.
+  - Added a session option to ignore window title change requests that
+    are received from the remote system.
+  - Added a menu item to the Edit menu that allows focus to change
+    between the active session and the chat window.  The keyboard
+    accelerator ALT+G can also be used.  Also, CTRL+SHIFT+TAB can be
+    used in the chat window to switch to the active session.
+  - The text "<Send chat to all tabs>" is displayed in the chat window
+    when the "Send chat to all tabs" option is set.
+  - Added support for 8-bit characters in the title bar.
+  - The left margin can be as large as 1024 pixels wide.
+  - Hidden files and folders are not displayed in the Connect dialog.
+  - In addition to being able to put the script header at the top of
+    a script, the script engine can be read from the registry or can
+    be overridden using an NTFS alternate data stream to contain the
+    script header if the header would interfere with the script.
+  - Script file lines can now be terminated with a single line feed
+    (LF) in addition to carriage return line feed (CRLF).
+  - Added Global.ini option "Suppress Execute Escape Sequence Exit
+    Codes" that suppresses the "S" and "F" escape sequence return
+    codes.
+  - SSH2: Modified the SSH2 page in the Session Options dialog to
+    allow key exchange methods to be configured. 
+  - VSH: Improved error message for the case where /NOPROMPT was
+    specified on the command line and a prompt was needed.
+  - VSFTP: "/" can be used to list the roots when connecting to a
+    server that allows multiple roots, such as VShell.
+
+Bug fixes:
+
+  - When a tab was closed, the associated session's settings were
+    saved when "Auto Save Options" was not set.
+  - When multiple tabbed sessions were disconnected and automatically
+    reconnected, logging did not resume.
+  - ANSI color changes were not being used after the screen was
+    reset. 
+  - SecureCRT failed to connect through a SOCKS version 5 proxy
+    without authentication because of a DNS failure. 
+  - Running a script that did an Xmodem transfer caused SecureCRT to
+    hang.
+  - The title bar was not updated correctly when substitution
+    parameters were used.
+  - Multi-line tab titles caused the tab title to wrap. 
+  - If the session option "Clear on Disconnect" was set when a session
+    was disconnected, the active tab was cleared, which was not always
+    the disconnected tab.
+  - Under certain circumstances involving tabbed sessions and
+    scrolling, it was possible to get in a state where opening a
+    remote file using "vi" displayed session scrollback rather than
+    the file being edited.
+  - Typing characters from languages such as Chinese or Japanese into
+    a session did not work correctly.
+  - Pasting UTF-8 characters into a session did not work correctly.
+  - The horizontal scrollbar was not the correct width when a session
+    had the "retain size and font" option set and the window was
+    resized to be smaller than the number of columns.
+  - If a shortcut key was set for a SecureCRT shortcut, the shortcut
+    key started SecureCRT, but it did not switch to SecureCRT.
+  - If a key was mapped to \v\r, the carriage return was incorrectly
+    sent as soon as 80 characters were pasted.
+  - In a dual monitor configuration, SecureCRT sometimes did not start
+    in the correct location when the specified position was a negative
+    value.
+  - Telnet: If a Telnet session to localhost was disconnected when
+    Microsoft IIS server was running, it caused the explorer window
+    manager to exit.
+  - Serial: SecureCRT crashed when connecting to the same serial
+    port using a session that had the "Auto reconnect" option enabled.
+  - SSH1: SecureCRT crashed when generating an SSH1 RSA key that was
+    larger than 1800 bits.
+  - SSH1/SSH2: Switching protocols from SSH1 to SSH2 caused an
+    extra X11 page to be displayed in the Session Options dialog.
+  - SSH2: SecureCRT crashed if an SFTP session was exited and the
+    session option "Close on disconnect" was set.
+  - SSH2: SecureCRT crashed when login failed and a remote port
+    forward needed to do a hostname lookup. 
+  - SSH2: SecureCRT crashed when attempting to upload a newly
+    generated public key using the Public Key Assistant if the
+    session was not connected. 
+  - SSH2: After issuing an "exit" command in an SFTP tab, the tab
+    could not be closed using CTRL+F4.
+  - SSH2: On the SSH2 page in the Session Options dialog, if no key
+    exchange method was selected, the dialog informing that at least
+    one key exchange method must be selected was displayed twice.
+  - SSH2: Some Kerberos key exchange methods were listed twice in the
+    key-exchange methods list.
+  - SSH2: If a password was typed before the password prompt appeared,
+    it was displayed in the session window after the session was
+    connected.
+  - SSH2: After connecting to OpenSSH running on a Cyclades TS2000
+    console server, the session could not be disconnected.
+  - VSFTP: No error message was displayed if the remote side
+    disconnected.
+  - VSH: VSH hung if a pipe was full and VSH sent more data to that
+    pipe.
+  - VSH: The Current User's profile was not being used to load and
+    save host key information.

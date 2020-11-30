@@ -1,0 +1,57 @@
+SecureCRT 5.1.2 Build 274
+
+VanDyke Software, Inc.
+官方主页：http://www.vandyke.com
+发布日期：2006 年 5 月 25 日
+----------------------------------------------------------------
+
+    SecureCRT 是高度可定制的终端仿真器，适用于 Internet 和 
+Intranet，支持 IPv6 标准。对于连接到运行 Windows、UNIX 和 VMS 的
+远程系统来说，SecureCRT 是理想的选择。
+
+主要特性：
+
+  . 广泛的终端仿真：
+
+    VT100，VT102，VT220，ANSI，SCO ANSI，Xterm，Wyse 50/60，
+    和 Linux console 仿真（带有 ANSI 颜色）。
+
+  . 优秀的会话管理特性：
+
+    新的带标签的用户界面和 Activator 托盘工具，最小化桌面的杂乱。
+    会话设置可以保存在命名的会话中。
+
+  . 协议支持: 
+
+    支持 SSH1，SSH2，Telnet，RLogin，Serial，和 TAPI 协议。
+
+  . Secure Shell：
+
+    Secure Shell 加密登录和会话数据，包括以下支持：
+    - 端口转发使 TCP/IP 数据更安全
+    - 口令，公钥，键盘交互和 Kerberos 验证
+    - AES，Twofish，Blowfish，3DES，RC4，和 DES 加密
+    - X11 转发
+
+  . 文件传输工具：
+
+    VCP 和 VSFTP 命令行公用程序让使用 SFTP 的文件传输更安全。
+
+  . 脚本支持：
+
+    支持 VBScript 和 JScript 脚本语言。
+----------------------------------------------------------------
+
+注册说明：
+
+    运行程序，选择菜单“帮助 > 输入许可数据”启动“许可向导”。
+    将以下数据复制并粘贴到“许可向导”的相应字段中即可。
+
+名字：Windows
+公司：IC
+序列号：03-50-006248
+许可密钥：ADPUSB W3DQ5B ZC35EJ 99AG3T ACM47V SAK5W6 8CD1YZ GJU7JK
+发布日期：27-06-2006
+----------------------------------------------------------------
+
+    偃月青龙        2006-06-27

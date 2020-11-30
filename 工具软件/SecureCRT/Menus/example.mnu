@@ -1,0 +1,108 @@
+// accelerator table
+ACCELERATOR
+	"session1", "S", "VIRTKEY | CTRL | SHIFT"
+	"session2", "L", "VIRTKEY | CTRL | SHIFT"
+	"session3", "W", "VIRTKEY | CTRL | SHIFT"
+END
+
+// stringtable for status bar and tooltips
+STRINGTABLE
+	"session1",  "连接到会话 1\n会话 1"
+	"session2",  "连接到会话 2\n会话 2"
+	"session3",  "连接到会话 3\n会话 3"
+	"script", "运行 vbs 脚本\ntest.vbs"
+	"hello", "发送 'Hello World'\nHello World" 
+END
+
+// main menu
+MENU  "[main]"
+	POPUPMENU "文件(&F)"
+		MENUITEM "连接(&C)...", "MENU_CONNECT"
+		MENUITEM "新建标签(&T)...", "MENU_TAB_NEW"
+		MENUITEM "新建 SFTP 标签(&S)", "MENU_TAB_NEW_SFTP"
+		MENUITEM "快速连接(&Q)...", "MENU_QUICK_CONNECT"
+		MENUITEM "断开(&D)", "MENU_DISCONNECT"
+		MENUITEM "重新连接(&R)", "MENU_RECONNECT"
+		SEPARATOR
+		POPUPMENU "打印(&P)"
+			MENUITEM "自动打印(&A)", "MENU_PRINT_AUTO"
+			MENUITEM "屏幕(&S)", "MENU_PRINT_SCREEN"
+			MENUITEM "选定内容(&L)", "MENU_PRINT_SELECTION"
+			MENUITEM "弹出页面(&E)", "MENU_PRINT_EJECT_PAGE"
+			MENUITEM "取消(&C)", "MENU_PRINT_CANCEL"
+		END
+		MENUITEM "打印设置(&U)...", "MENU_PRINT_SETUP"
+		SEPARATOR
+		MENUITEM "记录会话(&L)", "MENU_LOG_SESSION"
+		MENUITEM "原始记录会话(&R)", "MENU_DEBUG_LOG"
+		MENUITEM "跟踪选项(&T)", "MENU_TRACE_OPTIONS"
+		SEPARATOR
+		MENUITEM "最近", "MENU_MRU_FILE1"
+		SEPARATOR
+		MENUITEM "载入默认菜单(&L)", "TOOLS_LOAD_DEFAULT_MAIN_MENU"
+		MENUITEM "退出(&X)", "MENU_EXIT"
+	END
+
+	// this is a stand alone menu item that has no submenus
+	MENUITEM "载入默认菜单(&L)", "TOOLS_LOAD_DEFAULT_MAIN_MENU"
+
+	POPUPMENU "选项(&O)"
+		MENUITEM "会话选项(&S)...", "MENU_SESSION_OPTIONS"
+		MENUITEM "全局选项(&G)...", "MENU_GLOBAL_OPTIONS"
+		SEPARATOR
+		MENUITEM "自动保存选项(&A)", "MENU_AUTO_SAVE"
+		MENUITEM "现在保存设置(&N)", "MENU_SAVE_NOW"
+	END
+
+	POPUPMENU "用户定义(&U)"
+		MENUITEM "会话 &1", "OPEN_SESSION", "session1|/POS 100 100", "session1","session1"
+		MENUITEM "会话 &2", "OPEN_SESSION", "session2", "session2","session2"
+		MENUITEM "会话 &3", "OPEN_SESSION", "session3", "session3","session3"
+		MENUITEM "发送字符串(&E)", "SEND", "Hello World\n", "hello"
+	END
+
+	POPUPMENU "工具(&L)"
+		MENUITEM "键映射编辑器(&K)...", "TOOLS_MENU_KEYMAP_EDITOR"
+	END	
+END
+
+POPUPMENU "[context]"
+   	MENUITEM "会话 &1", "OPEN_SESSION", "session1|/POS 100 100", "session1","session1"
+	MENUITEM "会话 &2", "OPEN_SESSION", "session2", "session2","session2"
+	MENUITEM "会话 &3", "OPEN_SESSION", "session3", "session3","session3"
+	MENUITEM "发送字符串(&E)", "SEND", "Hello World\n", "hello"
+END	
+
+POPUPMENU "[system]"
+	MENUITEM "连接(&C)", "MENU_CONNECT"
+	SEPARATOR
+	MENUITEM "还原(&R)", "SYS_MENU_RESTORE"
+	MENUITEM "移动(&M)", "SYS_MENU_MOVE"
+	MENUITEM "大小(&S)", "SYS_MENU_SIZE"
+	MENUITEM "最小化(&N)", "SYS_MENU_MINIMIZE"
+	MENUITEM "最大话(&X)", "SYS_MENU_MAXIMIZE"
+	MENUITEM "关闭(&C)", "SYS_MENU_CLOSE"
+	SEPARATOR
+	MENUITEM "载入默认菜单(&L)", "TOOLS_LOAD_DEFAULT_SYS_MENU"
+	SEPARATOR
+	POPUPMENU "会话(&S)"
+		MENUITEM "会话 &1", "OPEN_SESSION", "session1|/POS 100 100", "session1","session1"
+		MENUITEM "会话 &2", "OPEN_SESSION", "session2", "session2","session2"
+		MENUITEM "会话 &3", "OPEN_SESSION", "session3", "session3","session3"
+	END
+END
+
+// the toolbar
+// Note:  the Connect, Quick Connect, and Help buttons use the built-in icon
+TOOLBAR  "[toolbar]"
+	TOOLBARITEM  "MENU_CONNECT", "MENU_CONNECT"
+	TOOLBARITEM  "MENU_QUICK_CONNECT", "MENU_QUICK_CONNECT"
+	TOOLBARITEM  "MENU_TAB_NEW", "MENU_TAB_NEW"
+	SEPARATOR
+	TOOLBARITEM "session1.bmp", "OPEN_SESSION", "session1|/POS 100 100", "session1", "session1"
+	TOOLBARITEM "session2.bmp", "OPEN_SESSION", "session2", "session2", "session2"
+	TOOLBARITEM "session3.bmp", "OPEN_SESSION", "session3", "session3", "session3"
+	TOOLBARITEM "send.bmp" ,"SEND", "Hello World\n"
+	SEPARATOR
+	TOOLBARITEM  "MENU_HELP_FINDER", "MENU_HELP_FINDER"
+END
